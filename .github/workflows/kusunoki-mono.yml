@@ -3,10 +3,6 @@ name: Generate Kusunoki Mono Font to Current Repo...
 on:
   workflow_dispatch:
 
-  push:
-    branches:
-      - main
-
 jobs:
   build-deploy:
     runs-on: macos-latest
