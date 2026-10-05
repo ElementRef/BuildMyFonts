@@ -8,6 +8,12 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          show-progress: true
+          fetch-depth: 1
+
       - name: Check Homebrew
         run: |
           brew --version
@@ -21,6 +27,7 @@ jobs:
 
       - name: Copy Fonts I Need
         run: |
+          mkdir -p ./SFMonoSquare
           cp "$(brew --prefix sfmono-square)/share/fonts/"*.otf ./SFMonoSquare
           ls -lah ./SFMonoSquare
 
