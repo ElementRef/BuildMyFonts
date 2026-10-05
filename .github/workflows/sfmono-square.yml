@@ -3,6 +3,9 @@ name: Generate SFMono Square Font to Current Repo...
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-deploy:
     runs-on: macos-latest
