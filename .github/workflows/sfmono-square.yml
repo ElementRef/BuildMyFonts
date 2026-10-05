@@ -1,0 +1,45 @@
+name: Generate SFMono Square Font to Current Repo...
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: macos-latest
+
+    steps:
+      - name: Check Homebrew
+        run: |
+          brew --version
+          brew config
+
+      - name: Build SFMono Square
+        run: |
+          brew tap delphinus/sfmono-square
+          brew install sfmono-square
+
+      - name: Copy Fonts I Need
+        run: |
+          cp "$(brew --prefix sfmono-square)/share/fonts/"*.otf ./SFMonoSquare
+          ls -lah ./SFMonoSquare
+
+      - name: Deploy to GitHub Repository
+        run: |
+          git config --global user.email ${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com
+          git config --global user.name ${{ github.actor }}
+          git config diff.nocase.textconv "tr '[:upper:]' '[:lower:]'"
+          git status
+          git add --all
+
+          if git diff --cached --quiet; then
+            echo "No Changes To Commit."
+            exit 0
+          fi
+
+          git commit -m 'Update::SFMono Square'
+          git pull --rebase --autostash
+          git push
