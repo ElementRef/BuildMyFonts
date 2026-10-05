@@ -15,6 +15,7 @@ jobs:
 
       - name: Build SFMono Square
         run: |
+          brew trust delphinus/sfmono-square
           brew tap delphinus/sfmono-square
           brew install sfmono-square
 

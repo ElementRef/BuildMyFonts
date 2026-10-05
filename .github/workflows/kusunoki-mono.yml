@@ -15,12 +15,15 @@ jobs:
 
       - name: Build Kusunoki Mono
         run: |
+          brew trust peinan/tap
           brew tap peinan/tap
           brew install --cask font-kusunoki-mono
 
       - name: Copy Fonts I Need
         run: |
-          cp "$(brew --prefix font-kusunoki-mono)/share/fonts/"*.otf ./KusunokiMono
+          brew list --cask --verbose font-kusunoki-mono
+          find "$(brew --prefix)" -type f -name '*.otf' 2>/dev/null | grep -i kusunoki || true
+          cp "$HOME/Library/Fonts/"*Kusunoki*.otf ./KusunokiMono/
           ls -lah ./KusunokiMono
 
       - name: Deploy to GitHub Repository
