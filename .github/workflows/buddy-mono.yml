@@ -57,7 +57,6 @@ jobs:
       - name: Copy Fonts I Need
         run: |
           mkdir -p ./BuddyMono
-          cd iosevka-src/dist/BuddyMono
           cp iosevka-src/dist/BuddyMono/TTF/*.ttf ./BuddyMono/
           ls -lah ./BuddyMono
 
