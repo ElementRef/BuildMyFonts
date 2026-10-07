@@ -15,6 +15,7 @@
 *.so
 *.swf
 *.test
+*.toml
 bin-debug/
 bin-release/
 dist/
