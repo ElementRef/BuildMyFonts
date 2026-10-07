@@ -31,7 +31,7 @@ jobs:
       - name: Copy Fonts I Need
         run: |
           mkdir -p ./SFMonoSquare
-          cp "$(brew --prefix sfmono-square)/share/fonts/"*.otf ./SFMonoSquare
+          cp "$(brew --prefix sfmono-square)/share/fonts/"*.otf ./SFMonoSquare/
           ls -lah ./SFMonoSquare
 
       - name: Deploy to GitHub Repository
