@@ -19,6 +19,7 @@ bin-debug/
 bin-release/
 dist/
 exampleSite/
+iosevka-src/
 node_modules/
 public/
 resources/
