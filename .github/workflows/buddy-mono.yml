@@ -39,7 +39,9 @@ jobs:
           check-latest: true
 
       - name: Copy Custom Build Plan
-        run: cp .github/buddy-mono/private-build-plans.toml iosevka-src/
+        run: |
+          curl -o private-build-plans.toml https://raw.githubusercontent.com/nck272/buddy-mono/main/private-build-plans.toml
+          cp ./private-build-plans.toml iosevka-src/
 
       - name: Install Dependencies And Build All Font Formats
         run: |
