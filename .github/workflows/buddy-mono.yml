@@ -54,7 +54,7 @@ jobs:
           if [ ! -d "iosevka-src/dist/BuddyMono/TTF" ]; then
             exit 1
           fi
-          echo "TTF And WOFF2 Build Directories Verified."
+          echo "TTF Build Directories Verified."
 
       - name: Copy Fonts I Need
         run: |
