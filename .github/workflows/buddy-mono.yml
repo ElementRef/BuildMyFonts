@@ -74,6 +74,6 @@ jobs:
             exit 0
           fi
 
-          git commit -m 'Update::Kusunoki Mono'
+          git commit -m 'Update::Buddy Mono'
           git pull --rebase --autostash
           git push
