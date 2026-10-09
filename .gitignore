@@ -39,3 +39,4 @@ macOS.Loon.conf
 macOS.Quantumult.X.conf
 StorableSidebar*
 temp*
+!private-build-plans.toml
